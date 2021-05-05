@@ -1,0 +1,25 @@
+.navigation-wrapper {
+    display: flex;
+    height: 96px;
+
+    .navigation-logo {
+        height: 100%;
+        margin-right: 10px;
+    }
+
+    .navigation-link {
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+        text-transform: uppercase;
+        height: 100%;
+        margin: 0 5px;
+        padding: 0px 5px;
+        padding-bottom: 5px;
+
+        &.active {
+            padding: 10px 5px;
+            border-bottom: 5px solid black;
+        }
+    }
+}
