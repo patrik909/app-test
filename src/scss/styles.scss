@@ -1,3 +1,5 @@
+@import "./mixins.scss";
+
 body {
   margin: 0;
   font-family: 'Arial Narrow';
@@ -28,7 +30,7 @@ body {
   .app-container {
     padding: 40px;
 
-    @media (max-width: 600px) {
+    @include mobile {
       padding: 10px;
     }
   }
