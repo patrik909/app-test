@@ -1,3 +1,5 @@
+@import "../../scss/mixins.scss";
+
 .navigation-wrapper {
     display: flex;
     height: 96px;
@@ -8,8 +10,7 @@
     }
 
     .navigation-link {
-        display: flex;
-        align-items: center;
+        @include center;
         box-sizing: border-box;
         text-transform: uppercase;
         height: 100%;

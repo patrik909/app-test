@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { tableReducer } from '../store/table/table.reducer';
+import { HomeCardModule } from 'src/components/home-card/home-card.module';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { tableReducer } from '../store/table/table.reducer';
     AppRoutingModule,
     HttpClientModule,
     NavigationModule,
+    HomeCardModule,
     StoreModule.forRoot({}),
     StoreModule.forFeature('table', tableReducer),
   ],

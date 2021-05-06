@@ -1,9 +1,8 @@
 @import "../../scss/mixins.scss";
 
 .table-page-wrapper {
-  display: flex;
+  @include center;
   flex-direction: column;
-  align-items: center;
 
   .table-filter {
     display: flex;
@@ -27,8 +26,7 @@
       }
   
       &.table-filter-select {
-        display: flex;
-        align-items: center;
+        @include center;
         flex-grow: 1;
   
         select {

@@ -1,3 +1,5 @@
+import ApiResponse from 'src/interfaces/ApiResponse';
+
 export default class TableItem {
   
   constructor(
@@ -8,7 +10,7 @@ export default class TableItem {
     public currency: string,
   ) { }
 
-  static create(data: any): TableItem {
+  static create(data: ApiResponse): TableItem {
     return new this(
       data.id,
       data.accountId,
