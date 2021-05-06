@@ -14,11 +14,9 @@ export default class ApiService {
     return this.http.get('https://private-9b37c2-wlb.apiary-mock.com/accounts?ccy=SEK')
       .pipe(
         take(1),
-        catchError(this.handleError)
+        catchError((error) => {
+          throw error;
+        }),
       );
-  }
-
-  handleError(error): any {
-    console.log('error', error);
   }
 }

@@ -1,5 +1,5 @@
-import { createFeatureSelector, createSelector } from "@ngrx/store";
-import TableState from "./table.state";
+import { createFeatureSelector, createSelector } from '@ngrx/store';
+import TableState from './table.state';
 
 const selector = createFeatureSelector<TableState>('table');
 

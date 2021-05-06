@@ -1,12 +1,12 @@
-import { Injectable } from "@angular/core";
-import { select, Store } from "@ngrx/store";
-import { Observable } from "rxjs";
-import { reverseList, setList, sortListByKey } from "src/store/table/table.actions";
-import { getList, getListTitles, getSortedBy } from "src/store/table/table.selectors";
-import ApiService from "src/services/api/api.service";
-import ApiResponse from "src/interfaces/ApiResponse";
-import TableModel from "src/models/api/TableModel";
-import TableState from "src/store/table/table.state";
+import { Injectable } from '@angular/core';
+import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { reverseList, setList, sortListByKey } from 'src/store/table/table.actions';
+import { getList, getListTitles, getSortedBy } from 'src/store/table/table.selectors';
+import ApiService from 'src/services/api/api.service';
+import ApiResponse from 'src/interfaces/ApiResponse';
+import TableModel from 'src/models/api/TableModel';
+import TableState from 'src/store/table/table.state';
 
 @Injectable()
 export default class TableFacade {

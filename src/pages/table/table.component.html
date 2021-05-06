@@ -13,11 +13,12 @@
     >
       Reverse list
     </button>
-    <div *ngIf="(tableFacade.list$ | async).length" class="table-filter-option table-filter-select">
+    <div 
+      *ngIf="(tableFacade.list$ | async).length" 
+      class="table-filter-option table-filter-select"
+    >
       <p>Sort by</p>
-      <select 
-        (change)="tableFacade.sortListByKey($event.target.value)"
-      >
+      <select (change)="tableFacade.sortListByKey($event.target.value)">
         <ng-template ngFor let-item [ngForOf]="tableFacade.listTitles$ | async">
           <option 
             [value]="item"
@@ -30,7 +31,10 @@
     </div>
   </div>
   <div class="table-wrapper">
-    <div *ngIf="tableFacade.listLoading; else table" class="table-loader-wrapper">
+    <div 
+      *ngIf="tableFacade.listLoading; else table" 
+      class="table-loader-wrapper"
+    >
       <div class="table-loader"></div>
     </div>
 
@@ -44,7 +48,10 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let item of tableFacade.list$ | async" class="table-row">
+            <tr 
+              *ngFor="let item of tableFacade.list$ | async" 
+              class="table-row"
+            >
               <ng-template ngFor let-title [ngForOf]="titles">
                 <td>{{item[title]}}</td>
               </ng-template>
