@@ -2,8 +2,34 @@ body {
   margin: 0;
   font-family: 'Arial Narrow';
   letter-spacing: 0.5px;
+
+  button {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-family: 'Arial Narrow';
+    letter-spacing: 0.5px;
+  }
+  
+  select {
+    background-color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-family: 'Arial Narrow';
+    letter-spacing: 0.5px;
+  }
+
+  p {
+    margin: 0;
+  }
   
   .app-container {
     padding: 40px;
+
+    @media (max-width: 600px) {
+      padding: 10px;
+    }
   }
 }

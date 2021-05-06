@@ -1,0 +1,55 @@
+<div class="table-page-wrapper">
+  <div class="table-filter">
+    <button 
+      class="table-filter-option table-filter-button" 
+      (click)="tableFacade.fetchList()"
+    >
+      Fetch table
+    </button>
+    <button
+      *ngIf="(tableFacade.list$ | async).length" 
+      class="table-filter-option table-filter-button"
+      (click)="tableFacade.reverseList()"
+    >
+      Reverse list
+    </button>
+    <div *ngIf="(tableFacade.list$ | async).length" class="table-filter-option table-filter-select">
+      <p>Sort by</p>
+      <select 
+        (change)="tableFacade.sortListByKey($event.target.value)"
+      >
+        <ng-template ngFor let-item [ngForOf]="tableFacade.listTitles$ | async">
+          <option 
+            [value]="item"
+            [selected]="item === (tableFacade.listSortedBy$ | async)"
+          >
+            {{ item }}
+          </option>
+        </ng-template>
+      </select>
+    </div>
+  </div>
+  <div class="table-wrapper">
+    <div *ngIf="tableFacade.listLoading; else table" class="table-loader-wrapper">
+      <div class="table-loader"></div>
+    </div>
+
+    <ng-template #table>
+      <table *ngIf="tableFacade.listTitles$ | async as titles">
+        <thead>
+            <tr>
+              <ng-template ngFor let-title [ngForOf]="titles">
+                <th>{{ title }}</th>
+              </ng-template>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of tableFacade.list$ | async" class="table-row">
+              <ng-template ngFor let-title [ngForOf]="titles">
+                <td>{{item[title]}}</td>
+              </ng-template>
+            </tr>
+        </tbody>
+      </table>
+    </ng-template>
+</div>

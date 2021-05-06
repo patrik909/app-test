@@ -1,7 +1,12 @@
-.home-wrapper {
+.home-page-wrapper {
     display: flex;
     flex-wrap: wrap;
     margin: -20px;
+
+            
+    @media (max-width: 600px) {
+        margin: 0px;
+    }
 
     .home-card {
         display: flex;
