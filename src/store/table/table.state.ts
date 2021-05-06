@@ -1,6 +1,6 @@
-import TableModel from 'src/models/api/TableModel';
+import TableItem from 'src/models/api/TableItem';
 
 export default interface TableState {
-  list: Array<TableModel>,
+  list: Array<TableItem>,
   sortedBy: string;
 }

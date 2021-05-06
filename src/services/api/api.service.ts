@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { catchError, take } from 'rxjs/operators';
+import { take } from 'rxjs/operators';
+import { environment as ENV } from '../../environments/environment';
 
 @Injectable()
 export default class ApiService {
@@ -11,12 +12,9 @@ export default class ApiService {
   ) { }
 
   fetch(): Observable<any> {
-    return this.http.get('https://private-9b37c2-wlb.apiary-mock.com/accounts?ccy=SEK')
+    return this.http.get(`${ENV.API_BASE_URL}/accounts?ccy=SEK`)
       .pipe(
         take(1),
-        catchError((error) => {
-          throw error;
-        }),
       );
   }
 }

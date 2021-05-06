@@ -5,13 +5,12 @@ import { reverseList, setList, sortListByKey } from 'src/store/table/table.actio
 import { getList, getListTitles, getSortedBy } from 'src/store/table/table.selectors';
 import ApiService from 'src/services/api/api.service';
 import ApiResponse from 'src/interfaces/ApiResponse';
-import TableModel from 'src/models/api/TableModel';
+import TableItem from 'src/models/api/TableItem';
 import TableState from 'src/store/table/table.state';
 
 @Injectable()
 export default class TableFacade {
 
-  apiSubscrition$: Observable<any>;
   listLoading: boolean;
   list$: Observable<any> = this.store.pipe(select(getList))
   listTitles$: Observable<any> = this.store.pipe(select(getListTitles))
@@ -20,16 +19,14 @@ export default class TableFacade {
   constructor(
     private apiService: ApiService,
     private store: Store<TableState>
-  ) {
-    this.listTitles$.subscribe((res) => console.log('res', res))
-  }
+  ) { }
 
   public fetchList(): void {
     this.listLoading = true;
     const subscription$ = this.apiService.fetch()
       .subscribe((response: Array<ApiResponse>) => {
         this.store.dispatch(setList({ 
-          list: response.map((item) => TableModel.create(item)) 
+          list: response.map((item) => TableItem.create(item)) 
         }));
         this.store.dispatch(sortListByKey({ 
           key: 'balance' 

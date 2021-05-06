@@ -1,4 +1,4 @@
-export default class TableModel {
+export default class TableItem {
   
   constructor(
     public id: string,
@@ -8,7 +8,7 @@ export default class TableModel {
     public currency: string,
   ) { }
 
-  static create(data: any): TableModel {
+  static create(data: any): TableItem {
     return new this(
       data.id,
       data.accountId,
