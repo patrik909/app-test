@@ -5,10 +5,10 @@ import { TableComponent } from 'src/pages/table/table.component';
 
 const routes: Routes = [
   {
-    path: '', redirectTo: 'task', pathMatch: 'full',
+    path: '', redirectTo: 'home', pathMatch: 'full',
   },
   {
-    path: 'task', component: HomeComponent,
+    path: 'home', component: HomeComponent,
   },
   {
     path: 'table', component: TableComponent,
