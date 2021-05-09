@@ -48,15 +48,15 @@
             </tr>
         </thead>
         <tbody>
-            <tr 
-              *ngFor="let item of tableFacade.list$ | async" 
-              class="table-row"
-            >
-              <ng-template ngFor let-title [ngForOf]="titles">
-                <td>{{item[title]}}</td>
-              </ng-template>
-            </tr>
-        </tbody>
-      </table>
-    </ng-template>
+          <tr 
+            *ngFor="let item of tableFacade.list$ | async" 
+            class="table-row"
+          >
+            <ng-template ngFor let-title [ngForOf]="titles">
+              <td>{{item[title]}}</td>
+            </ng-template>
+          </tr>
+      </tbody>
+    </table>
+  </ng-template>
 </div>

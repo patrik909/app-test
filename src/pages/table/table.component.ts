@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import TableFacade from 'src/facades/table.facade';
+import TableFacade from 'src/facades/table/table.facade';
 import ApiService from 'src/services/api/api.service';
 
 @Component({
