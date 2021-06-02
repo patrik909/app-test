@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import TableFacade from 'src/facades/table/table.facade';
 import ApiService from 'src/services/api/api.service';
 
@@ -7,7 +7,6 @@ import ApiService from 'src/services/api/api.service';
   templateUrl: './table.component.html',
   styleUrls: ['./table.scss'],
   providers: [TableFacade, ApiService],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TableComponent { 
 
