@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { reverseList, setList, sortListByKey } from 'src/store/table/table.actions';
 import { getList, getListTitles, getSortedBy } from 'src/store/table/table.selectors';
 import ApiService from 'src/services/api/api.service';
-import ApiResponse from 'src/interfaces/ApiResponse';
 import TableItem from 'src/models/table/TableItem';
 import TableState from 'src/store/table/table.state';
 
@@ -24,13 +23,9 @@ export default class TableFacade {
   public fetchList(): void {
     this.listLoading = true;
     const subscription$ = this.apiService.fetch()
-      .subscribe((response: Array<ApiResponse>) => {
-        this.store.dispatch(setList({ 
-          list: response.map((item) => TableItem.create(item)) 
-        }));
-        this.store.dispatch(sortListByKey({ 
-          key: 'balance' 
-        }));
+      .subscribe((tableItems: Array<TableItem>) => {
+        this.store.dispatch(setList({ list: tableItems }));
+        this.sortListByKey('balance');
         this.listLoading = false;
         subscription$.unsubscribe();
       })
