@@ -10,10 +10,10 @@ import TableState from 'src/store/table/table.state';
 @Injectable()
 export default class TableFacade {
 
-  listLoading: boolean;
-  list$: Observable<any> = this.store.pipe(select(getList))
-  listTitles$: Observable<any> = this.store.pipe(select(getListTitles))
-  listSortedBy$: Observable<any> = this.store.pipe(select(getSortedBy))
+  public listLoading: boolean;
+  public list$: Observable<TableItem[]> = this.store.pipe(select(getList))
+  public listTitles$: Observable<string[]> = this.store.pipe(select(getListTitles))
+  public listSortedBy$: Observable<string> = this.store.pipe(select(getSortedBy))
 
   constructor(
     private apiService: ApiService,
